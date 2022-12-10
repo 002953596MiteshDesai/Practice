@@ -1,5 +1,8 @@
 package com.AquaTurtle;
 
+//time Complexity O( M+N )
+//space O(m X N)
+
 public class SearchInMatrix {
 	
 	public static boolean searchInAMatrix(int[][] matrix, int target){

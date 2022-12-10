@@ -2,9 +2,9 @@ package com.AquaTurtle;
 
 import java.util.HashSet;
 
-//Time Complexity: O(M×N)O(M \times N)O(M×N) where M and N are the number of rows and columns respectively.
+//Time Complexity: O(M×N) where M and N are the number of rows and columns respectively.
 //
-//Space Complexity: O(M+N)O(M + N)O(M+N).
+//Space Complexity: O(M+N)
 
 
 public class SetZerosinMatrix {

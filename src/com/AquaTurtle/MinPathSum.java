@@ -1,8 +1,8 @@
 package com.AquaTurtle;
 
-//Time complexity : O(mn)O(mn)O(mn). We traverse the entire matrix once.
+//Time complexity : O(mn) We traverse the entire matrix once.
 		
-		// Space complexity : O(mn)O(mn)O(mn). Another matrix of the same size is used.
+		// Space complexity : O(mn) Another matrix of the same size is used.
 
 
 public class MinPathSum {

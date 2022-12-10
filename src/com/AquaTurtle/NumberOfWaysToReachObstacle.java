@@ -1,7 +1,9 @@
 package com.AquaTurtle;
 
 public class NumberOfWaysToReachObstacle {
+	// time complexity O(m*n)
 	
+	// space O(1)
 	public static int numWaysToReachEndWithObstacles(int[][] matrix){
 		int rows = matrix.length;
 		int cols = matrix[0].length;
