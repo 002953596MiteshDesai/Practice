@@ -3,6 +3,9 @@ package com.AquaTurtle;
 import java.util.ArrayList;
 import java.util.Stack;
 
+//Time Complexity O(n)
+//Space O(n)
+
 public class MinimumRemoveParenthesis {
 	
 	private static String returnValidString(String str){
