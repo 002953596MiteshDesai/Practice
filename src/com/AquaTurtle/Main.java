@@ -45,6 +45,19 @@ public class Main {
         };
     
         System.out.println(NumberOfWaysToReachObstacle.numWaysToReachEndWithObstacles(matrix3));
+    
+    
+        ArrayList<Interval> intervals = new ArrayList<>();
+		intervals.add(new Interval(1,3));
+		intervals.add(new Interval(2,6));
+		intervals.add(new Interval(8,10));
+		intervals.add(new Interval(15,18));
+    
+        ArrayList<Interval> merged = MergeIntervals.mergeIntervals(intervals);
+		
+		System.out.println("Hello world!");
     }
-    }
+}
+    
+
 

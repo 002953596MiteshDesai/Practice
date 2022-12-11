@@ -1,0 +1,91 @@
+package com.AquaTurtle;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+
+public class DecodeString {
+	public static String decodeString(String str) {
+		Stack<Character> stack = new Stack<>();
+		
+		for (Character ch : str.toCharArray()) {
+			if (ch != ']') {
+				stack.push(ch);
+			} else {
+				String s = "";
+				while (stack.peek() != '[') {
+					s = String.valueOf(stack.pop()) + s;
+				}
+				stack.pop();
+				int numOfTimes = Integer.valueOf(String.valueOf(stack.pop()));
+				String newStr = "";
+				for (int i = 0; i < numOfTimes; i++) {
+					newStr += s;
+				}
+				addValuesToStack(stack, newStr);
+			}
+			
+		}
+		
+		return getStringFromStack(stack);
+		
+		
+	}
+	
+	private static String getStringFromStack(Stack<Character> stack) {
+		String str = "";
+		while (!stack.isEmpty()) {
+			str = String.valueOf(stack.pop()) + str;
+		}
+		return str;
+	}
+	
+	private static void addValuesToStack(Stack<Character> stack, String str) {
+		for (Character ch : str.toCharArray()) {
+			stack.push(ch);
+		}
+	}
+	
+	//Leetcode Solution :
+	//Time Complexity: O(maxK⋅n)
+	//Space O(M+N)
+	
+	public String decodeString2(String s) {
+		Stack<Character> stack = new Stack<>();
+		for (int i = 0; i < s.length(); i++) {
+			if (s.charAt(i) == ']') {
+				List<Character> decodedString = new ArrayList<>();
+				// get the encoded string
+				while (stack.peek() != '[') {
+					decodedString.add(stack.pop());
+				}
+				// pop [ from the stack
+				stack.pop();
+				int base = 1;
+				int k = 0;
+				// get the number k
+				while (!stack.isEmpty() && Character.isDigit(stack.peek())) {
+					k = k + (stack.pop() - '0') * base;
+					base *= 10;
+				}
+				// decode k[decodedString], by pushing decodedString k times into stack
+				while (k != 0) {
+					for (int j = decodedString.size() - 1; j >= 0; j--) {
+						stack.push(decodedString.get(j));
+					}
+					k--;
+				}
+			}
+			// push the current character to stack
+			else {
+				stack.push(s.charAt(i));
+			}
+		}
+		// get the result from stack
+		char[] result = new char[stack.size()];
+		for (int i = result.length - 1; i >= 0; i--) {
+			result[i] = stack.pop();
+		}
+		return new String(result);
+	}
+}
